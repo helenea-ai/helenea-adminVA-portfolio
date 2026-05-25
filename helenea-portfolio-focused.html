@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Helenea Garcia — Admin & CRM VA Portfolio</title>
+<meta name="description" content="Virtual Assistant specializing in Admin Operations, Email Management, Lead Generation & HubSpot CRM">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FAF7F2;
+  --ink:#1C1917;
+  --rose:#C4717A;
+  --sage:#7A9E7E;
+  --warm:#8A847C;
+  --border:#E8E2D9;
+  --card:#FFFFFF;
+  --tag-bg:#F2EDE6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(28,25,23,.96);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(232,226,217,.08);
+  padding:0 6vw;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:#fff;letter-spacing:.02em}
+.nav-logo em{font-style:italic;color:var(--rose)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.78rem;color:rgba(255,255,255,.5);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--rose)}
+.nav-pill{background:rgba(196,113,122,.12);border:1px solid rgba(196,113,122,.3);border-radius:99px;padding:7px 18px;font-size:.72rem;font-weight:600;color:var(--rose);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;transition:all .2s}
+.nav-pill:hover{background:var(--rose);color:#fff}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;padding-top:64px;
+}
+.hero-left{
+  background:var(--ink);display:flex;flex-direction:column;
+  justify-content:center;padding:5rem 4rem 5rem 6vw;position:relative;z-index:1;
+}
+.hero-left::after{
+  content:'';position:absolute;top:0;right:-60px;width:120px;height:100%;
+  background:var(--ink);clip-path:polygon(0 0,50% 0,100% 100%,50% 100%);z-index:2;
+}
+.hero-right{
+  background:var(--cream);display:flex;flex-direction:column;
+  justify-content:center;padding:5rem 6vw 5rem 7rem;
+}
+.eyebrow{font-size:.65rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:1.5rem}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,5rem);font-weight:700;line-height:1.05;color:#fff;margin-bottom:.5rem}
+.hero-name em{font-style:italic;color:var(--rose)}
+.hero-title{font-size:.82rem;font-weight:400;color:rgba(255,255,255,.45);letter-spacing:.08em;margin-bottom:2.5rem}
+.stats-row{display:flex;gap:2rem;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.1)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1}
+.stat-label{font-size:.65rem;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-style:italic;color:var(--ink);line-height:1.4;margin-bottom:1.5rem}
+.hero-tagline span{color:var(--rose)}
+.hero-desc{font-size:.88rem;color:var(--warm);line-height:1.8;max-width:400px;margin-bottom:2rem}
+.hero-contact{display:flex;flex-direction:column;gap:.4rem}
+.hero-contact a{font-size:.78rem;color:var(--warm);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.hero-contact a:hover{color:var(--rose)}
+.cdot{width:5px;height:5px;background:var(--rose);border-radius:50%;flex-shrink:0}
+
+/* ── SECTION ── */
+section{padding:5rem 6vw}
+.section-label{font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:.7rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.15;color:var(--ink);margin-bottom:1rem}
+.section-sub{font-size:.88rem;color:var(--warm);max-width:560px;margin-bottom:3rem;line-height:1.75}
+
+/* ── PILLARS (4 only) ── */
+.pillars{background:var(--ink)}
+.pillars .section-title{color:#fff}
+.pillars .section-sub{color:rgba(255,255,255,.4)}
+.pillars .section-label{color:var(--rose)}
+.pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.06)}
+.pillar-card{background:var(--ink);padding:2.5rem 2rem;position:relative;overflow:hidden;transition:background .3s}
+.pillar-card:hover{background:#242018}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--rose);transition:height .35s ease}
+.pillar-card:hover::before{height:100%}
+.pillar-icon{font-size:1.8rem;margin-bottom:1.2rem;display:block}
+.pillar-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:#fff;margin-bottom:.6rem;line-height:1.2}
+.pillar-desc{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.65;margin-bottom:1.2rem}
+.pillar-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.p-tag{font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:rgba(196,113,122,.12);color:var(--rose);padding:.22rem .55rem;border-radius:2px;border:1px solid rgba(196,113,122,.2)}
+
+/* ── WORK SAMPLES SECTION ── */
+.samples-section{background:var(--cream)}
+
+/* EMAIL TRIAGE SAMPLE */
+.inbox-wrap{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;max-width:760px;margin:0 auto 3rem;box-shadow:0 8px 40px rgba(0,0,0,.06)}
+.inbox-topbar{background:#f5f5f5;padding:.5rem 1rem;display:flex;gap:6px;align-items:center;border-bottom:1px solid #e8e8e8}
+.itb-dot{width:10px;height:10px;border-radius:50%}
+.inbox-header-bar{background:var(--ink);padding:.8rem 1.4rem;display:flex;align-items:center;justify-content:space-between}
+.inbox-header-bar span{font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase}
+.inbox-header-bar strong{font-size:.82rem;color:#fff}
+.inbox-table{width:100%;border-collapse:collapse}
+.inbox-table tr{border-bottom:1px solid var(--border);transition:background .15s;cursor:default}
+.inbox-table tr:hover{background:#FAF7F2}
+.inbox-table td{padding:.75rem 1.2rem;font-size:.8rem;vertical-align:middle}
+.inbox-table td:first-child{font-weight:600;color:var(--ink);width:160px}
+.inbox-table td:nth-child(2){color:#3a3330;line-height:1.5}
+.inbox-table td:last-child{white-space:nowrap;text-align:right}
+.i-tag{display:inline-block;padding:2px 9px;border-radius:99px;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.i-urgent{background:#fdf4f4;border:1px solid #e8b4b4;color:var(--rose)}
+.i-action{background:#fef9ec;border:1px solid #f0d080;color:#c08000}
+.i-done{background:#f0faf4;border:1px solid #a7d7b5;color:#2e7d52}
+.i-fyi{background:#f0f4ff;border:1px solid #b4c8f0;color:#1a4db5}
+.inbox-footer{padding:.65rem 1.2rem;background:#fafafa;border-top:1px solid var(--border);font-size:.72rem;color:var(--warm);display:flex;justify-content:space-between}
+
+/* LEAD LIST SAMPLE */
+.lead-wrap{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;max-width:880px;margin:0 auto 3rem;box-shadow:0 8px 40px rgba(0,0,0,.06)}
+.lead-topbar{background:#f5f5f5;padding:.5rem 1rem;display:flex;gap:6px;align-items:center;border-bottom:1px solid #e8e8e8}
+.sheets-header{background:var(--ink);padding:.8rem 1.4rem;display:flex;align-items:center;justify-content:space-between}
+.lead-table{width:100%;border-collapse:collapse}
+.lead-table th{background:#1C1917;color:#fff;padding:.65rem 1rem;font-size:.72rem;font-weight:600;text-align:left;letter-spacing:.04em}
+.lead-table td{padding:.7rem 1rem;font-size:.78rem;border-bottom:1px solid var(--border);vertical-align:middle}
+.lead-table tr:nth-child(even){background:#FAF7F2}
+.lead-table tr:hover{background:#f0ede8}
+.score-pill{display:inline-block;padding:1px 8px;border-radius:3px;font-size:.68rem;font-weight:700}
+.s3{background:#f0faf4;border:1px solid #a7d7b5;color:#2e7d52}
+.s2{background:#fef9ec;border:1px solid #f0d080;color:#c08000}
+.s1{background:#fdf4f4;border:1px solid #e8b4b4;color:var(--rose)}
+.lead-footer{padding:.65rem 1rem;background:#fafafa;border-top:1px solid var(--border);font-size:.72rem;color:var(--warm)}
+
+/* ADMIN TRACKER */
+.tracker-wrap{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;max-width:760px;margin:0 auto 3rem;box-shadow:0 8px 40px rgba(0,0,0,.06)}
+.tracker-head{background:var(--ink);padding:.9rem 1.4rem;display:flex;align-items:center;justify-content:space-between}
+.tracker-title-text{font-size:.82rem;font-weight:600;color:#fff}
+.tracker-date-text{font-size:.72rem;color:rgba(255,255,255,.35);letter-spacing:.06em}
+.t-table{width:100%;border-collapse:collapse}
+.t-table th{background:#242018;color:rgba(255,255,255,.5);padding:.55rem 1.1rem;font-size:.65rem;font-weight:600;text-align:left;letter-spacing:.12em;text-transform:uppercase}
+.t-table tr{border-bottom:1px solid var(--border)}
+.t-table tr:last-child{border-bottom:none}
+.t-table tr:hover{background:#FAF7F2}
+.t-table td{padding:.7rem 1.1rem;font-size:.8rem;vertical-align:middle;color:var(--ink)}
+.t-table td:last-child{text-align:right}
+.status-pill{display:inline-block;padding:2px 10px;border-radius:99px;font-size:.65rem;font-weight:700;letter-spacing:.04em}
+.sp-done{background:#f0faf4;border:1px solid #a7d7b5;color:#2e7d52}
+.sp-prog{background:#fef9ec;border:1px solid #f0d080;color:#c08000}
+.sp-pend{background:#f5f5f5;border:1px solid #ddd;color:#888}
+.sp-urgent{background:#fdf4f4;border:1px solid #e8b4b4;color:var(--rose)}
+
+/* CRM HUBSPOT SAMPLE */
+.crm-wrap{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;max-width:760px;margin:0 auto;box-shadow:0 8px 40px rgba(0,0,0,.06)}
+.crm-topbar{background:#FF7A59;padding:.7rem 1.2rem;display:flex;align-items:center;justify-content:space-between}
+.crm-logo-text{font-size:.82rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:8px}
+.crm-nav-tabs{display:flex;gap:20px}
+.crm-nav-tabs span{font-size:.72rem;color:rgba(255,255,255,.7);cursor:default;padding:.2rem 0}
+.crm-nav-tabs span.active{color:#fff;border-bottom:2px solid #fff}
+.crm-content{padding:1.8rem}
+.crm-contact-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border)}
+.crm-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--rose),#e8a0a8);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:#fff;flex-shrink:0}
+.crm-contact-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--ink)}
+.crm-contact-meta{font-size:.75rem;color:var(--warm);margin-top:2px}
+.crm-stage-badge{margin-left:auto;background:#f0faf4;border:1px solid #a7d7b5;border-radius:99px;padding:4px 14px;font-size:.72rem;font-weight:700;color:#2e7d52;white-space:nowrap}
+.crm-fields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem;margin-bottom:1.4rem}
+.crm-field-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--warm);margin-bottom:3px}
+.crm-field-value{font-size:.82rem;color:var(--ink)}
+.crm-tags-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.4rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border)}
+.crm-tag-chip{background:rgba(196,113,122,.1);border:1px solid rgba(196,113,122,.25);border-radius:99px;padding:3px 12px;font-size:.7rem;font-weight:600;color:var(--rose)}
+.crm-log-title{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--warm);margin-bottom:.8rem}
+.crm-log-item{display:flex;gap:.8rem;margin-bottom:.9rem;align-items:flex-start}
+.log-dot{width:10px;height:10px;border-radius:50%;background:var(--rose);flex-shrink:0;margin-top:4px}
+.log-text{font-size:.8rem;color:var(--ink);line-height:1.55;margin-bottom:2px}
+.log-date{font-size:.7rem;color:var(--warm)}
+
+/* ── TOOLS ── */
+.tools-section{background:var(--cream);border-top:1.5px solid var(--border)}
+.tools-focused{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:800px}
+.tool-group{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px 26px;transition:border-color .2s}
+.tool-group:hover{border-color:var(--rose)}
+.tool-group-label{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+.tool-chips{display:flex;flex-wrap:wrap;gap:8px}
+.tool-chip{background:var(--tag-bg);border:1px solid var(--border);border-radius:99px;padding:5px 14px;font-size:.78rem;font-weight:500;color:var(--ink);transition:all .2s}
+.tool-chip:hover{border-color:var(--rose);color:var(--rose)}
+.tool-chip.highlight{background:rgba(196,113,122,.1);border-color:rgba(196,113,122,.3);color:var(--rose);font-weight:600}
+
+/* ── TESTIMONIAL ── */
+.tmn-section{background:var(--ink)}
+.tmn-section .section-label{color:var(--rose)}
+.tmn-card{max-width:720px;margin:0 auto;text-align:center}
+.tmn-stars{font-size:1rem;color:var(--rose);letter-spacing:4px;margin-bottom:20px}
+.tmn-quote-mark{font-family:'Cormorant Garamond',serif;font-size:5rem;line-height:.5;color:rgba(196,113,122,.2);margin-bottom:8px}
+.tmn-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2vw,1.45rem);font-style:italic;color:#fff;line-height:1.65;margin-bottom:28px}
+.tmn-author{font-size:.82rem;font-weight:700;color:var(--rose);letter-spacing:.06em;margin-bottom:5px}
+.tmn-role{font-size:.75rem;color:rgba(255,255,255,.35)}
+
+/* ── ABOUT ── */
+.about-strip{
+  display:grid;grid-template-columns:1fr 1.6fr;
+  background:var(--ink);padding:5rem 6vw;gap:5rem;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+.about-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2vw,1.6rem);font-style:italic;color:rgba(255,255,255,.55);line-height:1.5}
+.about-text{font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.85;margin-bottom:2rem}
+.about-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.about-stat-box{text-align:center;padding:1rem;border:1px solid rgba(255,255,255,.07);border-radius:6px}
+.astat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--rose);line-height:1}
+.astat-label{font-size:.65rem;color:rgba(255,255,255,.3);margin-top:.3rem;letter-spacing:.06em;line-height:1.4}
+
+/* ── FOOTER ── */
+footer{background:#141210;padding:2rem 6vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+footer p{font-size:.78rem;color:rgba(255,255,255,.3)}
+footer span{color:var(--rose)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .pillar-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;padding-top:64px}
+  .hero-left::after{display:none}
+  .hero-left,.hero-right{padding:4rem 6vw}
+  .about-strip{grid-template-columns:1fr;gap:2rem}
+  .about-stats{grid-template-columns:repeat(2,1fr)}
+  .pillar-grid{grid-template-columns:1fr}
+  .social-showcase{grid-template-columns:1fr}
+  .crm-fields{grid-template-columns:1fr 1fr}
+  .tools-focused{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">H<em>elenea</em> Garcia</div>
+  <ul class="nav-links">
+    <li><a href="#skills">Services</a></li>
+    <li><a href="#samples">Work Samples</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a href="mailto:esphelenea@gmail.com" class="nav-pill">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="eyebrow">Virtual Assistant Portfolio</div>
+    <h1 class="hero-name">Ma. <em>Helenea</em><br>Garcia</h1>
+    <p class="hero-title">Admin Operations · Email Management · Lead Generation · HubSpot CRM</p>
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100+</div>
+        <div class="stat-label">CRM Records Managed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2×</div>
+        <div class="stat-label">Promoted to QA</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="section-label">What I bring to your team</div>
+    <h2 class="hero-tagline">Reliable, organised,<br>and <span>execution-focused</span><br>from day one.</h2>
+    <p class="hero-desc">I specialise in keeping your CRM clean, your inbox under control, your lead lists accurate, and your admin running without friction — independently, across US, AU, and UK-timezone clients.</p>
+    <div class="hero-contact">
+      <a href="mailto:esphelenea@gmail.com"><span class="cdot"></span>esphelenea@gmail.com</a>
+      <a href="https://linkedin.com/in/ma-helenea-garcia-b30a952b2" target="_blank"><span class="cdot"></span>linkedin.com/in/ma-helenea-garcia-b30a952b2</a>
+      <a href="#"><span class="cdot"></span>Cavite, Philippines · Available US / AU / UK Hours</a>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS — 4 FOCUSED PILLARS -->
+<section class="pillars" id="skills">
+  <div class="section-label">What I do</div>
+  <h2 class="section-title">Four areas. Deep expertise.</h2>
+  <p class="section-sub">Every service here is something I've been building and executing across 4+ years of remote client work — not a skillset I'm developing, one I've already proven.</p>
+
+  <div class="pillar-grid">
+    <div class="pillar-card">
+      <span class="pillar-icon">📅</span>
+      <div class="pillar-name">Admin Task Operations</div>
+      <div class="pillar-desc">Calendar management, scheduling, data entry, file organisation in Google Drive, weekly reporting, task tracking in Google Sheets — everything that keeps a business running cleanly in the background.</div>
+      <div class="pillar-tags">
+        <span class="p-tag">Scheduling</span>
+        <span class="p-tag">Data Entry</span>
+        <span class="p-tag">File Mgmt</span>
+        <span class="p-tag">Reporting</span>
+        <span class="p-tag">Google Workspace</span>
+      </div>
+    </div>
+
+    <div class="pillar-card">
+      <span class="pillar-icon">📥</span>
+      <div class="pillar-name">Email & Inbox Management</div>
+      <div class="pillar-desc">High-volume inbox triage with zero items dropped — priority tagging, folder systems, draft replies, response templates, and daily summaries. 50+ emails a day handled at BM Outsourcing with full documentation.</div>
+      <div class="pillar-tags">
+        <span class="p-tag">Triage System</span>
+        <span class="p-tag">Gmail / Outlook</span>
+        <span class="p-tag">Templates</span>
+        <span class="p-tag">Daily Summary</span>
+        <span class="p-tag">Follow-up</span>
+      </div>
+    </div>
+
+    <div class="pillar-card">
+      <span class="pillar-icon">🔍</span>
+      <div class="pillar-name">Lead Generation</div>
+      <div class="pillar-desc">Targeted prospect research and list building — LinkedIn sourcing, business data verification, qualification scoring, and clean delivery in Google Sheets or Excel. 100+ leads built with high accuracy across multiple projects.</div>
+      <div class="pillar-tags">
+        <span class="p-tag">LinkedIn</span>
+        <span class="p-tag">List Building</span>
+        <span class="p-tag">Verification</span>
+        <span class="p-tag">Google Sheets</span>
+        <span class="p-tag">Prospect Research</span>
+      </div>
+    </div>
+
+    <div class="pillar-card">
+      <span class="pillar-icon">🟠</span>
+      <div class="pillar-name">HubSpot CRM Management</div>
+      <div class="pillar-desc">Contact creation, pipeline stage updates, lead tagging and segmentation, data cleanup, interaction logging, and end-of-shift audits. CRM records kept clean, current, and useful — always.</div>
+      <div class="pillar-tags">
+        <span class="p-tag">HubSpot</span>
+        <span class="p-tag">Pipeline Mgmt</span>
+        <span class="p-tag">Lead Tagging</span>
+        <span class="p-tag">Data Cleanup</span>
+        <span class="p-tag">Interaction Log</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK SAMPLES -->
+<section class="samples-section" id="samples" style="background:var(--cream);">
+  <div class="section-label">Work Samples</div>
+  <h2 class="section-title">See it in action.</h2>
+  <p class="section-sub">Four realistic samples — one per specialisation. Exactly the kind of work I do every day for clients.</p>
+
+  <!-- ── SAMPLE 1: EMAIL TRIAGE ── -->
+  <div class="section-label" style="margin-bottom:.8rem;">📥 Sample 1 — Email Inbox Triage & Management</div>
+  <p style="font-size:.84rem;color:var(--warm);line-height:1.7;max-width:620px;margin-bottom:1.5rem;">Daily inbox triage system for a high-volume client mailbox. Every email categorised, actioned, and summarised — nothing dropped, nothing delayed.</p>
+
+  <div class="inbox-wrap">
+    <div class="inbox-topbar">
+      <div class="itb-dot" style="background:#FF5F57;"></div>
+      <div class="itb-dot" style="background:#FEBC2E;"></div>
+      <div class="itb-dot" style="background:#28C840;"></div>
+      <span style="margin-left:10px;font-size:.72rem;color:#999;">Gmail — client@company.com</span>
+    </div>
+    <div class="inbox-header-bar">
+      <strong>Inbox Triage — May 15, 2025</strong>
+      <span>47 emails processed · Helenea G.</span>
+    </div>
+    <table class="inbox-table">
+      <tbody>
+        <tr>
+          <td>sarah.m@client.com</td>
+          <td><strong>Re: Invoice + Reschedule</strong> — Invoice resent. Thursday appt moved to Friday 2 PM. Calendar updated.</td>
+          <td><span class="i-tag i-done">Done</span></td>
+        </tr>
+        <tr>
+          <td>mark.r@acme.com</td>
+          <td><strong>Billing complaint — 3-day delay</strong> — Escalated to billing team with priority flag. Confirmation sent to client.</td>
+          <td><span class="i-tag i-urgent">Escalated</span></td>
+        </tr>
+        <tr>
+          <td>bloom@agency.co</td>
+          <td><strong>Partnership inquiry</strong> — Replied with intro, noted for your review. Awaiting your direction before next step.</td>
+          <td><span class="i-tag i-action">Action Needed</span></td>
+        </tr>
+        <tr>
+          <td>texco@supplier.com</td>
+          <td><strong>May order sign-off</strong> — Forwarded to you for approval. Deadline: Thursday EOD.</td>
+          <td><span class="i-tag i-action">Forwarded</span></td>
+        </tr>
+        <tr>
+          <td>newsletter@system.com</td>
+          <td>12 order confirmations archived. 3 unsubscribes logged in HubSpot CRM.</td>
+          <td><span class="i-tag i-fyi">FYI / Archived</span></td>
+        </tr>
+        <tr>
+          <td>james.t@prospect.com</td>
+          <td><strong>Onboarding call request</strong> — Calendly link sent. Awaiting booking confirmation.</td>
+          <td><span class="i-tag i-action">Pending Reply</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="inbox-footer">
+      <span>Total: 47 received · 18 replied · 24 archived · 5 escalated/forwarded</span>
+      <span>Response SLA: ≤2 hours · ✓ Met</span>
+    </div>
+  </div>
+
+  <!-- ── SAMPLE 2: LEAD GENERATION ── -->
+  <div class="section-label" style="margin-bottom:.8rem;margin-top:3.5rem;">🔍 Sample 2 — Lead Generation List (Google Sheets)</div>
+  <p style="font-size:.84rem;color:var(--warm);line-height:1.7;max-width:620px;margin-bottom:1.5rem;">Targeted prospect list of 120 UK-based retail SMEs built for a digital marketing agency. Researched via LinkedIn and Google, verified, qualified, and delivered clean.</p>
+
+  <div class="lead-wrap">
+    <div class="lead-topbar">
+      <div class="itb-dot" style="background:#FF5F57;"></div>
+      <div class="itb-dot" style="background:#FEBC2E;"></div>
+      <div class="itb-dot" style="background:#28C840;"></div>
+      <span style="margin-left:10px;font-size:.72rem;color:#999;">Google Sheets — Lead List · UK Retail SMEs · May 2025</span>
+    </div>
+    <table class="lead-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Company</th>
+          <th>Contact Name</th>
+          <th>Title</th>
+          <th>Email</th>
+          <th>LinkedIn</th>
+          <th>Industry</th>
+          <th>Employees</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--warm);">01</td>
+          <td style="font-weight:600;color:var(--ink);">Bloom & Co.</td>
+          <td>Sarah P.</td>
+          <td style="color:var(--warm);">Marketing Dir.</td>
+          <td style="color:var(--rose);">s.p@bloom.co.uk</td>
+          <td style="color:#1a5eb5;">/in/sarahp</td>
+          <td style="color:var(--warm);">Retail / Fashion</td>
+          <td style="color:var(--warm);">22</td>
+          <td><span class="score-pill s3">★★★</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--warm);">02</td>
+          <td style="font-weight:600;color:var(--ink);">GreenRoot Ltd.</td>
+          <td>Mark T.</td>
+          <td style="color:var(--warm);">CEO / Founder</td>
+          <td style="color:var(--rose);">mark@greenroot.uk</td>
+          <td style="color:#1a5eb5;">/in/markt</td>
+          <td style="color:var(--warm);">Eco Products</td>
+          <td style="color:var(--warm);">14</td>
+          <td><span class="score-pill s3">★★★</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--warm);">03</td>
+          <td style="font-weight:600;color:var(--ink);">Lumen Goods</td>
+          <td>Priya S.</td>
+          <td style="color:var(--warm);">Head of Ops</td>
+          <td style="color:var(--rose);">priya@lumengoods.com</td>
+          <td style="color:#1a5eb5;">/in/priyas</td>
+          <td style="color:var(--warm);">Homeware</td>
+          <td style="color:var(--warm);">38</td>
+          <td><span class="score-pill s2">★★☆</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--warm);">04</td>
+          <td style="font-weight:600;color:var(--ink);">Croft & Lane</td>
+          <td>James W.</td>
+          <td style="color:var(--warm);">Sales Director</td>
+          <td style="color:var(--rose);">j.w@croftlane.co.uk</td>
+          <td style="color:#1a5eb5;">/in/jamesw</td>
+          <td style="color:var(--warm);">Retail / Gifts</td>
+          <td style="color:var(--warm);">11</td>
+          <td><span class="score-pill s2">★★☆</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--warm);">05</td>
+          <td style="font-weight:600;color:var(--ink);">Olive & Stone</td>
+          <td>Claire R.</td>
+          <td style="color:var(--warm);">Owner / Buyer</td>
+          <td style="color:var(--rose);">claire@olivestone.uk</td>
+          <td style="color:#1a5eb5;">/in/clairer</td>
+          <td style="color:var(--warm);">Food & Specialty</td>
+          <td style="color:var(--warm);">6</td>
+          <td><span class="score-pill s1">★☆☆</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="lead-footer">Showing 5 of 120 rows · Email verified (94% deliverability) · Qualification: ★★★ = Decision maker + active online + 10–50 employees</div>
+  </div>
+
+  <!-- ── SAMPLE 3: ADMIN TRACKER ── -->
+  <div class="section-label" style="margin-bottom:.8rem;margin-top:3.5rem;">📋 Sample 3 — Daily Admin Task Tracker</div>
+  <p style="font-size:.84rem;color:var(--warm);line-height:1.7;max-width:620px;margin-bottom:1.5rem;">Daily operations tracker used to manage tasks across email, CRM, scheduling, and admin — with live status updates and priority flags, delivered every morning.</p>
+
+  <div class="tracker-wrap">
+    <div class="tracker-head">
+      <span class="tracker-title-text">📋 Daily Admin Tracker — May 15, 2025</span>
+      <span class="tracker-date-text">Updated: 9:02 AM · Helenea G.</span>
+    </div>
+    <table class="t-table">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Area</th>
+          <th>Tool</th>
+          <th>Due</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Triage overnight emails — flag, reply, archive</td>
+          <td>Email Mgmt</td>
+          <td>Gmail</td>
+          <td>9:30 AM</td>
+          <td><span class="status-pill sp-done">Done ✓</span></td>
+        </tr>
+        <tr>
+          <td>Update HubSpot — 4 new enquiry form contacts</td>
+          <td>CRM</td>
+          <td>HubSpot</td>
+          <td>10:00 AM</td>
+          <td><span class="status-pill sp-done">Done ✓</span></td>
+        </tr>
+        <tr>
+          <td>Add 15 new leads to prospect sheet (UK Retail)</td>
+          <td>Lead Gen</td>
+          <td>LinkedIn + Sheets</td>
+          <td>11:30 AM</td>
+          <td><span class="status-pill sp-prog">In Progress</span></td>
+        </tr>
+        <tr>
+          <td>Reschedule Wednesday call — James T.</td>
+          <td>Scheduling</td>
+          <td>Google Calendar</td>
+          <td>12:00 PM</td>
+          <td><span class="status-pill sp-prog">In Progress</span></td>
+        </tr>
+        <tr>
+          <td>Mark R. billing follow-up — confirm resolution</td>
+          <td>Email Mgmt</td>
+          <td>Gmail + HubSpot</td>
+          <td>2:00 PM</td>
+          <td><span class="status-pill sp-urgent">Follow-up Due</span></td>
+        </tr>
+        <tr>
+          <td>Organise May assets into Google Drive folders</td>
+          <td>Admin</td>
+          <td>Google Drive</td>
+          <td>EOD</td>
+          <td><span class="status-pill sp-pend">Pending</span></td>
+        </tr>
+        <tr>
+          <td>Prepare weekly KPI summary for client</td>
+          <td>Reporting</td>
+          <td>Google Sheets</td>
+          <td>EOD Friday</td>
+          <td><span class="status-pill sp-pend">Pending</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── SAMPLE 4: HUBSPOT CRM ── -->
+  <div class="section-label" style="margin-bottom:.8rem;margin-top:3.5rem;">🟠 Sample 4 — HubSpot CRM Contact Record & Pipeline Management</div>
+  <p style="font-size:.84rem;color:var(--warm);line-height:1.7;max-width:620px;margin-bottom:1.5rem;">A fully maintained HubSpot contact record — sourced from a lead list, added to the pipeline, tagged, and logged with every interaction. Clean data standard applied consistently.</p>
+
+  <div class="crm-wrap">
+    <div class="crm-topbar">
+      <div class="crm-logo-text">🟠 HubSpot CRM</div>
+      <div class="crm-nav-tabs">
+        <span>Contacts</span>
+        <span class="active">Record</span>
+        <span>Deals</span>
+        <span>Activities</span>
+      </div>
+    </div>
+    <div class="crm-content">
+      <div class="crm-contact-header">
+        <div class="crm-avatar">JT</div>
+        <div>
+          <div class="crm-contact-name">James Thornton</div>
+          <div class="crm-contact-meta">Marketing Director · Bloom & Co. · Added 14 May 2025 · Helenea G.</div>
+        </div>
+        <div class="crm-stage-badge">🟢 Proposal Sent</div>
+      </div>
+
+      <div class="crm-fields">
+        <div>
+          <div class="crm-field-label">Email</div>
+          <div class="crm-field-value">j.thornton@bloomco.uk</div>
+        </div>
+        <div>
+          <div class="crm-field-label">Phone</div>
+          <div class="crm-field-value">+44 7700 123456</div>
+        </div>
+        <div>
+          <div class="crm-field-label">Company</div>
+          <div class="crm-field-value">Bloom & Co.</div>
+        </div>
+        <div>
+          <div class="crm-field-label">Lead Source</div>
+          <div class="crm-field-value">LinkedIn Outreach</div>
+        </div>
+        <div>
+          <div class="crm-field-label">Industry</div>
+          <div class="crm-field-value">Retail / Fashion (UK)</div>
+        </div>
+        <div>
+          <div class="crm-field-label">Company Size</div>
+          <div class="crm-field-value">22 employees</div>
+        </div>
+        <div>
+          <div class="crm-field-label">Last Contact</div>
+          <div class="crm-field-value">May 14, 2025</div>
+        </div>
+        <div>
+          <div class="crm-field-label">Next Follow-up</div>
+          <div class="crm-field-value" style="color:var(--rose);font-weight:600;">May 21, 2025</div>
+        </div>
+        <div>
+          <div class="crm-field-label">Lifecycle Stage</div>
+          <div class="crm-field-value">Sales Qualified Lead</div>
+        </div>
+      </div>
+
+      <div class="crm-tags-row">
+        <span class="crm-tag-chip">#warm-lead</span>
+        <span class="crm-tag-chip">#proposal-stage</span>
+        <span class="crm-tag-chip">#follow-up-Q3</span>
+        <span class="crm-tag-chip">#UK-retail</span>
+        <span class="crm-tag-chip">#decision-maker</span>
+        <span class="crm-tag-chip">#linkedin-sourced</span>
+      </div>
+
+      <div class="crm-log-title">Interaction Log</div>
+      <div class="crm-log-item">
+        <div class="log-dot"></div>
+        <div>
+          <div class="log-text">Proposal sent via email — revised pricing + case study attached. James requested 1-week review period.</div>
+          <div class="log-date">May 14, 2025 · 3:15 PM · Helenea G.</div>
+        </div>
+      </div>
+      <div class="crm-log-item">
+        <div class="log-dot" style="background:var(--sage);"></div>
+        <div>
+          <div class="log-text">Intro call completed — 28 min. James confirmed interest in email campaign support. Pain point: inconsistent inbox management.</div>
+          <div class="log-date">May 10, 2025 · 11:00 AM · Helenea G.</div>
+        </div>
+      </div>
+      <div class="crm-log-item">
+        <div class="log-dot" style="background:#aaa;"></div>
+        <div>
+          <div class="log-text">Contact created from LinkedIn outreach response. Added to pipeline: Proposal Pending. Tags applied. Follow-up set.</div>
+          <div class="log-date">May 8, 2025 · 9:30 AM · Helenea G.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS — FOCUSED 4 AREAS ONLY -->
+<section class="tools-section" id="tools">
+  <div class="section-label">Tech Stack</div>
+  <h2 class="section-title">The tools I work with every day.</h2>
+  <p class="section-sub">Focused on the four service areas — no filler. Every tool listed here is one I use regularly in real client work.</p>
+
+  <div class="tools-focused">
+    <div class="tool-group">
+      <div class="tool-group-label">📅 Admin Operations</div>
+      <div class="tool-chips">
+        <span class="tool-chip highlight">Google Workspace</span>
+        <span class="tool-chip">Google Calendar</span>
+        <span class="tool-chip">Google Drive</span>
+        <span class="tool-chip highlight">Google Sheets</span>
+        <span class="tool-chip">Microsoft Excel</span>
+        <span class="tool-chip">Notion</span>
+        <span class="tool-chip">ClickUp</span>
+        <span class="tool-chip">Trello</span>
+        <span class="tool-chip">Asana</span>
+        <span class="tool-chip">Calendly</span>
+      </div>
+    </div>
+    <div class="tool-group">
+      <div class="tool-group-label">📥 Email Management</div>
+      <div class="tool-chips">
+        <span class="tool-chip highlight">Gmail</span>
+        <span class="tool-chip">Outlook</span>
+        <span class="tool-chip highlight">HubSpot Email</span>
+        <span class="tool-chip">Mailchimp</span>
+        <span class="tool-chip">Slack</span>
+        <span class="tool-chip">Loom</span>
+        <span class="tool-chip">Grammarly</span>
+        <span class="tool-chip">Zoom</span>
+      </div>
+    </div>
+    <div class="tool-group">
+      <div class="tool-group-label">🔍 Lead Generation</div>
+      <div class="tool-chips">
+        <span class="tool-chip highlight">LinkedIn</span>
+        <span class="tool-chip highlight">Google Sheets</span>
+        <span class="tool-chip">Microsoft Excel</span>
+        <span class="tool-chip">Google Search</span>
+        <span class="tool-chip">Email Verifier</span>
+        <span class="tool-chip">Hunter.io (familiar)</span>
+        <span class="tool-chip">Apollo (familiar)</span>
+      </div>
+    </div>
+    <div class="tool-group">
+      <div class="tool-group-label">🟠 HubSpot CRM</div>
+      <div class="tool-chips">
+        <span class="tool-chip highlight">HubSpot CRM</span>
+        <span class="tool-chip">Contact Management</span>
+        <span class="tool-chip">Pipeline Management</span>
+        <span class="tool-chip">Lead Tagging</span>
+        <span class="tool-chip">Email Sequences</span>
+        <span class="tool-chip">Interaction Logging</span>
+        <span class="tool-chip">Data Cleanup</span>
+        <span class="tool-chip">Zapier (automation)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="tmn-section">
+  <div class="section-label" style="text-align:center;">Client Feedback</div>
+  <div class="tmn-card">
+    <div class="tmn-stars">★ ★ ★ ★ ★</div>
+    <div class="tmn-quote-mark">"</div>
+    <div class="tmn-text">Helen really stands out as one of the most motivated and hardworking freelancers I've ever collaborated with. She consistently brings fresh ideas to projects, pays meticulous attention to any given task, and is always efficient in meeting deadlines — making her an incredibly reliable colleague!</div>
+    <div class="tmn-author">Jayson S.</div>
+    <div class="tmn-role">Project Manager · Online Marketing & Social Media Marketing · Mar 2024</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="about-strip" id="about">
+  <div>
+    <div class="about-quote">"The CRM is clean. The inbox is clear. The lead list is verified. That's a productive day."</div>
+  </div>
+  <div>
+    <p class="about-text">I'm Helenea — a detail-oriented Virtual Assistant from Cavite, Philippines, with 4+ years of experience in admin operations, email inbox management, lead generation, and HubSpot CRM. I've kept high-volume inboxes at zero, built targeted lead lists with verified data, maintained CRM records that are actually useful, and managed admin workflows that let business owners focus forward.<br><br>I was promoted to Quality Assurance at two separate companies — not by asking, but by consistently performing above the standard expected. That same accountability is what every client gets when they work with me.</p>
+    <div class="about-stats">
+      <div class="about-stat-box">
+        <div class="astat-num">4+</div>
+        <div class="astat-label">Years remote admin & ops experience</div>
+      </div>
+      <div class="about-stat-box">
+        <div class="astat-num">100+</div>
+        <div class="astat-label">CRM records managed & verified</div>
+      </div>
+      <div class="about-stat-box">
+        <div class="astat-num">0</div>
+        <div class="astat-label">Items dropped — ever</div>
+      </div>
+      <div class="about-stat-box">
+        <div class="astat-num">3×</div>
+        <div class="astat-label">Time zones served: US · AU · UK</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Ma. Helenea E. Garcia &nbsp;·&nbsp; <span>esphelenea@gmail.com</span> &nbsp;·&nbsp; Cavite, Philippines</p>
+  <p>Admin · Email · Lead Gen · HubSpot CRM · 2025</p>
+</footer>
+
+</body>
+</html>
